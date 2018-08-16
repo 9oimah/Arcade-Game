@@ -61,14 +61,14 @@ class Player {
 		}
 		
 		//Draws gems after reaching a certain score
-		if (this.count === 3) {
+		if (this.count >= 3 && this.count < 10) {
 			ctx.drawImage(Resources.get('images/Gem Blue.png'), 290, 550);
 		} 
-		else if (this.count === 10) {
+		else if (this.count >= 10 && this.count < 20) {
 			ctx.drawImage(Resources.get('images/Gem Blue.png'), 290, 550);
 			ctx.drawImage(Resources.get('images/Gem Green.png'), 330, 550);
 		} 
-		else if (this.count === 20) {
+		else if (this.count >= 20) {
 			ctx.drawImage(Resources.get('images/Gem Blue.png'), 290, 550);
 			ctx.drawImage(Resources.get('images/Gem Green.png'), 330, 550);
 			ctx.drawImage(Resources.get('images/Gem Orange.png'), 370, 550);
@@ -80,19 +80,15 @@ class Player {
 	handleInput(key) {
 		if (key === 'left' && this.x > 0) {
 			this.x -= 100;
-			ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 		}
 		else if (key === 'right' && this.x < 400) {
 			this.x += 100;
-			ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 		}
 		else if (key === 'up' && this.y > 40) {
 			this.y -= 100;
-			ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 		}
 		else if (key === 'down' && this.y < 400) {
 			this.y += 100;
-			ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 		}
 	}
 	
@@ -131,10 +127,8 @@ function collision() {
 //Checks whether the player gets to the top
 function success() {
 	if (player.y <= 1) {
-		if (!player.succeeded) {
-			this.succeeded = true;
-			player.count++;
-		}
+		this.succeeded = true;
+		player.count++;
 		return true;
 	}
 	return false;
