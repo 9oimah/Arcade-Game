@@ -1,5 +1,5 @@
 # Arcade Game
-This is a browser-based arcade game clone. Play it [here.](http://noimat.design/Arcade-Game/)
+This is a browser-based arcade game clone. Play it [here.](http://naeema.design/Arcade-Game/)
 ## How to run locally
 Download or Clone the Repository.
 Open index.html file to view the project in your browser.
